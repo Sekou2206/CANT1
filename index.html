@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CANTICENCE — Drop 001 · Two Tees, One Pull</title>
+<meta name="description" content="CANTICENCE — garments in numbered drops. Two tees, one pull. Numbered, then gone. Order by mail.">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:ital,wght@0,200;0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════
+   CANTICENCE — variables, base, matière
+═══════════════════════════════════════════════════ */
+:root{
+  --red:#8B1A1A; --red-2:#A31D1D; --red-dark:#370101;
+  --night:#012059; --cream:#F5EDE8; --black:#0A0A0A;
+  --gold:#C2A164; --gold-deep:#9A7A42; --ink:#2E1A16; --err:#E89A8F;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --pad:6vw;
+  --noise:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{overflow-x:clip}
+body{
+  background:var(--black);color:var(--cream);
+  font-family:'Jost',sans-serif;font-weight:300;font-size:15px;
+  line-height:1.95;letter-spacing:.03em;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+body.locked{overflow:hidden}
+::selection{background:var(--red);color:var(--cream)}
+::-webkit-scrollbar{width:9px}
+::-webkit-scrollbar-track{background:var(--black)}
+::-webkit-scrollbar-thumb{background:#2A0B0B}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{background:none;border:0;color:inherit;font:inherit;cursor:pointer}
+:focus-visible{outline:1px solid var(--gold);outline-offset:4px}
+section,footer.footer{position:relative;scroll-margin-top:84px}
+
+/* Grain argentique global */
+.grain{position:fixed;inset:-60%;z-index:9600;pointer-events:none;background-image:var(--noise);background-size:260px;opacity:.06;mix-blend-mode:overlay;animation:grainShift .9s steps(1) infinite}
+@keyframes grainShift{
+  0%{transform:translate(0,0)}12.5%{transform:translate(-2%,-3%)}
+  25%{transform:translate(1.5%,-2%)}37.5%{transform:translate(-1%,2%)}
+  50%{transform:translate(2%,1%)}62.5%{transform:translate(-2%,1.5%)}
+  75%{transform:translate(1%,-1.5%)}87.5%{transform:translate(-1.5%,-1%)}
+  100%{transform:translate(0,0)}
+}
+
+/* ── Révélations ── */
+.ln-w .ln{display:block;overflow:hidden;padding-bottom:.14em;margin-bottom:-.14em}
+.ln-w .ln>span{display:block;transform:translateY(125%);transition:transform 1.5s var(--ease) var(--d,0s)}
+.ln-w.in .ln>span{transform:translateY(0)}
+.rv{opacity:0;transform:translateY(26px);transition:opacity 1.6s ease var(--d,0s),transform 1.6s var(--ease) var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+.rv-fade{opacity:0;transition:opacity 2s ease var(--d,0s)}
+.rv-fade.in{opacity:1}
+
+/* ── Sections claires ── */
+.lt{background:linear-gradient(180deg,var(--cream) 0%,var(--cream) 55%,#EDD6CB 100%);color:var(--ink)}
+.lt::after{content:"";position:absolute;inset:0;background-image:var(--noise);background-size:260px;opacity:.045;mix-blend-mode:multiply;pointer-events:none}
+.lt .gold-label{color:var(--gold-deep)}
+.lt .folio{color:rgba(46,26,22,.6)}
+.lt .link-line:hover{color:var(--red-2)}
+[data-theme="dark"] .link-line:hover{color:var(--gold)}
+
+/* ── Folios ── */
+.folio{position:absolute;top:5.4rem;left:var(--pad);z-index:6;font-size:9.5px;font-weight:400;letter-spacing:.45em;text-transform:uppercase;color:rgba(245,237,232,.62)}
+
+/* ── Typo utilitaire ── */
+.gold-label{font-size:10px;font-weight:400;letter-spacing:.55em;text-transform:uppercase;color:var(--gold)}
+.u-line{position:relative;display:inline-block}
+.u-line::after{content:"";position:absolute;left:0;bottom:-6px;width:100%;height:1px;background:currentColor;opacity:.55;transform:scaleX(0);transform-origin:right;transition:transform .55s cubic-bezier(.77,0,.18,1)}
+.u-line:hover::after{transform:scaleX(1);transform-origin:left}
+.link-line{display:inline-flex;align-items:center;gap:1.3rem;font-size:11px;font-weight:300;letter-spacing:.42em;text-transform:uppercase;transition:color .5s}
+.link-line .ll-line{width:48px;height:1px;background:currentColor;opacity:.4;transition:width .7s var(--ease),opacity .5s}
+.link-line svg{flex:none;transition:transform .7s var(--ease)}
+.link-line:hover .ll-line{width:96px;opacity:.9}
+.link-line:hover svg{transform:translateX(6px)}
+
+/* ═══════════════════════════════════════════════════
+   Header
+═══════════════════════════════════════════════════ */
+.site-head{position:fixed;inset:0 0 auto 0;z-index:6000;display:flex;justify-content:space-between;align-items:center;padding:1.7rem var(--pad);color:var(--cream);opacity:0;transition:opacity 1.2s ease .5s,color .5s ease,transform .7s var(--ease)}
+body.loaded .site-head{opacity:1}
+.site-head.hidey{transform:translateY(-101%)}
+.site-head.on-light{color:var(--ink)}
+.brand{font-size:11px;font-weight:400;letter-spacing:.5em;text-transform:uppercase;transition:color .4s}
+.brand:hover{color:var(--gold)}
+.head-nav{display:flex}
+.head-nav a{margin-left:2.1rem;font-size:10px;font-weight:300;letter-spacing:.34em;text-transform:uppercase;transition:color .4s}
+.head-nav a:hover{color:var(--gold)}
+.menu-btn{display:none;font-size:10px;font-weight:400;letter-spacing:.42em;text-transform:uppercase;transition:color .4s}
+.menu-btn:hover{color:var(--gold)}
+
+/* Rail : sommaire chiffré */
+.rail{position:fixed;right:2.2rem;top:50%;transform:translateY(-50%);z-index:5000;display:flex;flex-direction:column;gap:1.3rem;opacity:0;transition:opacity 1.2s ease 1s,color .5s}
+body.loaded .rail{opacity:1}
+.rail a{display:flex;flex-direction:row-reverse;align-items:center;gap:.7rem}
+.rail a span{font-size:9px;font-weight:400;letter-spacing:.3em;color:rgba(245,237,232,.38);transition:color .4s}
+.rail a::before{content:"";width:0;height:1px;background:var(--gold);transition:width .55s var(--ease)}
+.rail a.active span{color:var(--gold)}
+.rail a.active::before{width:26px}
+.rail.on-light a span{color:rgba(46,26,22,.5)}
+.rail.on-light a.active span{color:var(--gold-deep)}
+
+/* Menu plein écran */
+.menu{position:fixed;inset:0;z-index:8000;background:linear-gradient(205deg,#4A0808 0%,var(--red-dark) 55%,#1E0202 100%);display:flex;flex-direction:column;justify-content:center;align-items:center;overflow:auto;opacity:0;visibility:hidden;transition:opacity .55s ease,visibility .55s}
+.menu.open{opacity:1;visibility:visible}
+.menu-close{position:absolute;top:1.9rem;right:var(--pad);font-size:10px;font-weight:400;letter-spacing:.42em;text-transform:uppercase;color:rgba(245,237,232,.7);transition:color .4s}
+.menu-close:hover{color:var(--gold)}
+.menu-nav{display:flex;flex-direction:column;text-align:center;padding:5rem 0}
+.menu-nav a{display:flex;align-items:baseline;justify-content:center;gap:1.2rem;padding:.85rem 2.4rem;border-bottom:1px solid rgba(245,237,232,.1);font-family:'Cormorant',serif;font-weight:300;font-size:clamp(1.5rem,4.8vh,2.6rem);letter-spacing:.1em;text-transform:uppercase;color:var(--cream);opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s var(--ease),color .4s;transition-delay:calc(var(--i)*70ms + .15s)}
+.menu.open .menu-nav a{opacity:1;transform:none}
+.menu-nav a span{font-family:'Jost';font-size:10px;font-weight:400;letter-spacing:.3em;color:var(--gold)}
+.menu-nav a:hover{color:var(--gold);font-style:italic}
+.menu-foot{position:absolute;bottom:2.2rem;font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:rgba(245,237,232,.45)}
+
+/* ═══════════════════════════════════════════════════
+   001 — HERO
+═══════════════════════════════════════════════════ */
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:0 var(--pad)}
+.hero-media{position:absolute;inset:0;overflow:hidden}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;filter:saturate(1.05) contrast(1.05) brightness(.85)}
+.smoke{position:absolute;inset:-8%;z-index:2;pointer-events:none}
+.smoke i{position:absolute;border-radius:50%;will-change:transform}
+.smoke i:nth-child(1){width:58vmax;height:58vmax;left:-16vmax;top:-22vmax;background:radial-gradient(circle,rgba(163,29,29,.46),rgba(139,26,26,.2) 42%,transparent 68%);animation:drift-a 58s ease-in-out infinite alternate}
+.smoke i:nth-child(2){width:44vmax;height:44vmax;right:-14vmax;top:-6vmax;background:radial-gradient(circle,rgba(139,26,26,.5),rgba(55,1,1,.24) 45%,transparent 70%);animation:drift-b 70s ease-in-out infinite alternate}
+.smoke i:nth-child(3){width:30vmax;height:30vmax;left:24%;top:38%;background:radial-gradient(circle,rgba(245,237,232,.11),transparent 62%);animation:drift-c 48s ease-in-out infinite alternate}
+.smoke i:nth-child(4){width:52vmax;height:52vmax;left:8%;bottom:-30vmax;background:radial-gradient(circle,rgba(55,1,1,.72),rgba(55,1,1,.28) 40%,transparent 66%);animation:drift-a 82s ease-in-out infinite alternate-reverse}
+.smoke i:nth-child(5){width:34vmax;height:34vmax;right:-4%;bottom:-10vmax;background:radial-gradient(circle,rgba(163,29,29,.3),transparent 60%);animation:drift-b 62s ease-in-out infinite alternate-reverse}
+@keyframes drift-a{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(6%,9%,0) scale(1.14)}}
+@keyframes drift-b{from{transform:translate3d(0,0,0) scale(1.05)}to{transform:translate3d(-7%,-6%,0) scale(.92) rotate(8deg)}}
+@keyframes drift-c{from{transform:translate3d(0,0,0) scale(.9)}to{transform:translate3d(4%,-8%,0) scale(1.2)}}
+.hero-veil{position:absolute;inset:0;z-index:3;background:radial-gradient(120% 100% at 50% 30%,transparent 40%,rgba(10,10,10,.6) 100%),linear-gradient(180deg,rgba(10,10,10,.42) 0%,rgba(139,26,26,.3) 42%,rgba(10,10,10,.9) 78%,var(--black) 100%)}
+
+/* ── Écritures rouges posées sur la vidéo ── */
+.hero-red{position:absolute;inset:0;z-index:4;pointer-events:none}
+.hr-word{
+  position:absolute;top:15vh;left:50%;
+  transform:translateX(-50%) rotate(-2.5deg);
+  font-family:'Cormorant',serif;font-style:italic;font-weight:400;
+  font-size:clamp(3.2rem,10vw,8.5rem);letter-spacing:.02em;line-height:1;
+  color:var(--red-2);opacity:.95;white-space:nowrap;
+}
+.hr-side{
+  position:absolute;top:50%;transform:translateY(-50%);
+  writing-mode:vertical-rl;font-size:9.5px;font-weight:400;
+  letter-spacing:.5em;text-transform:uppercase;color:rgba(163,29,29,.85);
+}
+.hr-side--r{right:calc(var(--pad) + .5rem)}
+.hr-side--l{left:calc(var(--pad) + .5rem);transform:translateY(-50%) rotate(180deg)}
+.hr-fade{opacity:0;transition:opacity 1.8s ease var(--d,1.2s)}
+body.loaded .hr-fade{opacity:1}
+@media(max-width:760px){
+  .hr-side{display:none}
+  .hr-word{font-size:clamp(2.6rem,13vw,5rem);top:13vh}
+}
+
+.hero-core{position:relative;z-index:5;text-align:center;max-width:1500px;margin:0 auto}
+.hero-core::before{content:"";display:block;width:1px;height:64px;margin:0 auto 3.2rem;background:linear-gradient(rgba(245,237,232,0),rgba(245,237,232,.4));transform:scaleY(0);transform-origin:top;transition:transform 1.5s var(--ease) .6s}
+body.loaded .hero-core::before{transform:scaleY(1)}
+.hero-title{font-family:'Cormorant',serif;text-transform:uppercase;font-size:clamp(2.7rem,8.4vw,8.2rem);line-height:1.05;display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline}
+.ht-light{font-weight:300;font-style:italic;letter-spacing:.14em;margin-right:.35em;--o:.05s}
+.ht-strong{font-weight:500;letter-spacing:.06em;--o:.45s}
+.ch{display:inline-block;opacity:0;transform:translateY(.4em);filter:blur(8px);transition:opacity 1.2s ease,transform 1.2s var(--ease),filter 1.2s ease;transition-delay:calc(var(--i)*55ms + var(--o,0s))}
+body.loaded .ch{opacity:1;transform:none;filter:blur(0)}
+.hero-sub{margin-top:2.4rem;font-size:11px;font-weight:300;letter-spacing:.5em;margin-right:-.5em;text-transform:uppercase;color:rgba(245,237,232,.72)}
+.fade-el{opacity:0;transform:translateY(22px);transition:opacity 1.6s ease,transform 1.6s var(--ease);transition-delay:var(--d,0s)}
+body.loaded .fade-el{opacity:1;transform:none}
+.hero-bottom{position:absolute;left:var(--pad);right:var(--pad);bottom:2.6rem;z-index:5;display:grid;grid-template-columns:1fr auto 1fr;align-items:end;padding-top:1.6rem;border-top:1px solid rgba(245,237,232,.14)}
+.hb-folio{font-size:10px;font-weight:400;letter-spacing:.42em;text-transform:uppercase;color:rgba(245,237,232,.62)}
+.hb-meta{justify-self:end;font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:rgba(245,237,232,.4)}
+.discover{display:flex;flex-direction:column;align-items:center;gap:.8rem;color:rgba(245,237,232,.75);font-size:10px;font-weight:300;letter-spacing:.5em;text-transform:uppercase;transition:color .4s}
+.discover span{margin-right:-.5em}
+.discover svg{animation:chev 3s ease-in-out infinite}
+.discover:hover{color:var(--gold)}
+@keyframes chev{0%,100%{transform:translateY(0);opacity:.6}50%{transform:translateY(6px);opacity:1}}
+@media(max-width:760px){
+  .hero-veil{background:radial-gradient(120% 100% at 50% 30%,rgba(10,10,10,.15) 40%,rgba(10,10,10,.78) 100%),linear-gradient(180deg,rgba(10,10,10,.56) 0%,rgba(139,26,26,.32) 40%,rgba(10,10,10,.94) 80%,var(--black) 100%)}
+  .hb-meta{display:none}
+}
+
+/* ═══════════════════════════════════════════════════
+   002 — PRÉSENTATION
+═══════════════════════════════════════════════════ */
+#manifesto{padding:24vh var(--pad) 18vh;overflow:clip}
+.mani-ink{position:absolute;left:-20vmax;bottom:-30vmax;width:66vmax;height:66vmax;border-radius:50%;background:radial-gradient(circle,rgba(139,26,26,.32) 0%,rgba(139,26,26,.15) 38%,rgba(139,26,26,0) 66%);pointer-events:none}
+.mani-grid{position:relative;z-index:2;max-width:1500px;margin:0 auto;display:grid;grid-template-columns:repeat(12,1fr);gap:2rem}
+.mani-eyebrow{grid-column:1/5}
+.mani-title{grid-column:1/13;margin:.1em 0 .12em;font-family:'Cormorant',serif;font-style:italic;font-weight:300;font-size:clamp(3.4rem,11vw,10rem);line-height:.95;letter-spacing:.01em;color:#23120E}
+.mani-title .tt-dot{color:var(--red-2);font-style:normal}
+.mani-etym{grid-column:2/7;grid-row:3;font-family:'Cormorant',serif;font-style:italic;font-size:clamp(1rem,1.6vw,1.25rem);color:var(--red-2);letter-spacing:.04em}
+.mani-text{grid-column:7/12;grid-row:3;max-width:34rem;justify-self:end;border-left:1px solid rgba(139,26,26,.35);padding-left:2.6rem;font-size:16px;color:#4A2A26}
+.mani-facts{grid-column:7/12;grid-row:4;max-width:34rem;justify-self:end;margin-top:2.6rem;padding-top:1.1rem;border-top:1px solid rgba(139,26,26,.2);font-size:9px;font-weight:400;letter-spacing:.4em;text-transform:uppercase;color:var(--gold-deep)}
+.house-card{grid-column:2/7;grid-row:4;margin-top:3.6rem;max-width:26rem}
+.house-card>div{display:flex;justify-content:space-between;gap:2rem;padding:.85rem 0;border-top:1px solid rgba(139,26,26,.22)}
+.house-card dt{font-size:9px;font-weight:400;letter-spacing:.4em;text-transform:uppercase;color:var(--gold-deep)}
+.house-card dd{font-size:12px;letter-spacing:.06em;color:#4A2A26}
+.mani-folio-low{position:absolute;bottom:3.4vh;left:var(--pad);z-index:2;font-size:9px;letter-spacing:.38em;text-transform:uppercase;color:rgba(90,40,40,.48)}
+.seal{position:absolute;right:6vw;bottom:16vh;width:clamp(140px,15vw,210px);z-index:2}
+.seal svg{width:100%;height:auto;animation:spin 70s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.seal text{font-family:'Jost';font-size:11px;letter-spacing:3.5px;fill:rgba(139,26,26,.58)}
+@media(max-width:860px){
+  .mani-etym,.mani-text,.mani-facts,.house-card{grid-column:1/13;grid-row:auto}
+  .mani-text{border-left:0;border-top:1px solid rgba(139,26,26,.3);padding:2rem 0 0;justify-self:start}
+  .seal{display:none}
+}
+
+/* ═══════════════════════════════════════════════════
+   003/004/005 — LES PIÈCES (croquis animés)
+═══════════════════════════════════════════════════ */
+.piece{min-height:94vh;overflow:clip;display:grid;grid-template-columns:46% 1fr;align-items:center;gap:3vw;padding:18vh var(--pad) 15vh;max-width:1700px;margin:0 auto}
+#sang{background:linear-gradient(165deg,var(--red-dark) 0%,#4A0808 55%,#5C0F0F 100%)}
+#nuit{background:radial-gradient(100% 130% at 72% 42%,#02236B 0%,var(--night) 30%,#011034 62%,#060810 100%)}
+.pc-title{font-family:'Cormorant',serif;font-weight:300;font-size:clamp(2.6rem,5.5vw,4.8rem);letter-spacing:.04em;line-height:1;margin:1.6rem 0 .4rem}
+.pc-sub{font-family:'Cormorant',serif;font-style:italic;font-size:clamp(1.05rem,1.7vw,1.35rem);color:rgba(245,237,232,.65);margin-bottom:2.2rem}
+.lt .pc-sub{color:rgba(74,42,38,.7)}
+.pc-desc{max-width:30rem;margin-bottom:2.6rem;color:rgba(245,237,232,.8)}
+.lt .pc-desc{color:#4A2A26}
+.pc-quote{border-left:1px solid rgba(194,161,100,.4);padding-left:1.6rem;margin-bottom:2.6rem}
+.pc-quote p{font-family:'Cormorant',serif;font-style:italic;font-size:1.15rem;color:var(--cream)}
+.pc-quote cite{display:block;margin-top:.7rem;font-style:normal;font-size:10px;letter-spacing:.45em;text-transform:uppercase;color:var(--gold)}
+.carnet{margin-bottom:3rem;max-width:30rem}
+.carnet>div{display:flex;justify-content:space-between;gap:2rem;padding:.8rem 0;border-top:1px solid rgba(245,237,232,.12)}
+.carnet>div:last-child{border-bottom:1px solid rgba(245,237,232,.12)}
+.carnet dt{font-size:9px;font-weight:400;letter-spacing:.4em;text-transform:uppercase;color:var(--gold)}
+.carnet dd{font-size:12px;letter-spacing:.06em;color:rgba(245,237,232,.85);text-align:right}
+.lt .carnet>div{border-color:rgba(139,26,26,.2)}
+.lt .carnet dt{color:var(--gold-deep)}
+.lt .carnet dd{color:#4A2A26}
+
+/* Croquis technique — se dessine à l'entrée */
+.plate-stage{position:relative;will-change:transform}
+.stage-glow{position:absolute;inset:-8%;background:radial-gradient(50% 45% at 60% 45%,rgba(163,29,29,.14),transparent 70%);pointer-events:none}
+.plate{display:block;width:100%;height:auto;max-height:82vh;margin:0 auto;
+  --st:rgba(245,237,232,.85); --stt:rgba(245,237,232,.55); --std:rgba(245,237,232,.4);
+  --tx:rgba(245,237,232,.72); --txd:rgba(245,237,232,.5);
+}
+.plate--ink{
+  --st:rgba(46,26,22,.82); --stt:rgba(46,26,22,.5); --std:rgba(46,26,22,.35);
+  --tx:rgba(46,26,22,.7); --txd:rgba(46,26,22,.5);
+}
+.plate .draw>*{stroke:var(--st);stroke-width:1.2;fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.8s var(--ease) var(--d,0s)}
+.plate.in .draw>*{stroke-dashoffset:0}
+.plate .gf{opacity:0;transition:opacity 1.4s ease var(--d,1.2s)}
+.plate.in .gf{opacity:1}
+.plate .thin{stroke:var(--stt);stroke-width:.9;fill:none}
+.plate .stitch{stroke:var(--std);stroke-width:.8;fill:none;stroke-dasharray:5 7}
+.plate .dim{stroke:var(--std);stroke-width:.8;fill:none}
+.plate .pl-txt{font-family:'Jost';font-size:10px;letter-spacing:2px;fill:var(--tx)}
+.plate .pl-dim{font-family:'Jost';font-size:9.5px;letter-spacing:2px;fill:var(--txd)}
+@media(max-width:900px){
+  .piece{grid-template-columns:1fr;min-height:0;padding-top:15vh;gap:3rem}
+  .plate{max-height:60vh;max-width:88vw}
+}
+
+/* ═══════════════════════════════════════════════════
+   006 — THE DROP (la date)
+═══════════════════════════════════════════════════ */
+#drop{background:var(--black);padding:24vh var(--pad) 22vh}
+.drop-core{max-width:46rem;margin:0 auto;text-align:center}
+.drop-title{font-family:'Cormorant',serif;font-weight:300;font-size:clamp(2.2rem,5vw,4rem);letter-spacing:.02em;line-height:1.05;margin:1.6rem 0 .9rem}
+.drop-date{font-family:'Cormorant',serif;font-style:italic;font-size:clamp(1.15rem,2.2vw,1.6rem);color:var(--gold);margin-bottom:2.8rem}
+.cd{display:flex;justify-content:center;gap:clamp(1.8rem,4vw,3.2rem);margin-bottom:3rem}
+.cd>div{text-align:center}
+.cd b{display:block;font-family:'Cormorant',serif;font-weight:300;font-size:clamp(2.2rem,4.5vw,3.4rem);line-height:1;font-variant-numeric:tabular-nums;color:var(--cream)}
+.cd span{font-size:9px;letter-spacing:.35em;text-transform:uppercase;color:rgba(245,237,232,.5)}
+.cd-live{font-family:'Cormorant',serif;font-style:italic;font-size:1.3rem;color:var(--gold);margin-bottom:3rem}
+.drop-rules{font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:rgba(245,237,232,.55);line-height:2.4;max-width:38rem;margin:0 auto 3.4rem}
+
+/* ═══════════════════════════════════════════════════
+   007 — THE ORDER (commander par mail)
+═══════════════════════════════════════════════════ */
+#order{background:linear-gradient(165deg,var(--red-dark) 0%,#4A0808 55%,#5C0F0F 100%);padding:20vh var(--pad) 18vh}
+.ord-grid{display:grid;grid-template-columns:46% 1fr;gap:clamp(3rem,6vw,6rem);max-width:1600px;margin:0 auto;align-items:start}
+.ord-title{font-family:'Cormorant',serif;font-weight:300;font-size:clamp(1.9rem,3.6vw,3.2rem);letter-spacing:.02em;line-height:1.1;margin:1.4rem 0 1rem}
+.ord-sub{color:rgba(245,237,232,.68);margin-bottom:2.8rem;max-width:30rem}
+.rows{list-style:none}
+.row{display:grid;grid-template-columns:5.4rem 1fr;align-items:start;padding:2.1rem 0;border-top:1px solid rgba(245,237,232,.14);transition:background .5s}
+.row:last-child{border-bottom:1px solid rgba(245,237,232,.14)}
+.row-n{font-family:'Cormorant',serif;font-weight:300;font-style:italic;font-size:2.4rem;line-height:1;color:rgba(245,237,232,.32);transition:color .5s}
+.row h3{font-size:12px;font-weight:400;letter-spacing:.5em;text-transform:uppercase;margin-bottom:.5rem}
+.row p{color:rgba(245,237,232,.68);max-width:28rem}
+.row>div{transition:transform .7s var(--ease)}
+.row:hover{background:rgba(139,26,26,.12)}
+.row:hover .row-n{color:var(--gold)}
+.row:hover>div{transform:translateX(10px)}
+.mail-line{margin-top:3rem;display:flex;align-items:baseline;gap:1.8rem;flex-wrap:wrap}
+.mail-addr{font-family:'Cormorant',serif;font-style:italic;font-size:clamp(1.25rem,2.2vw,1.7rem);color:var(--cream)}
+#copyBtn{font-size:10px;font-weight:400;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);transition:color .4s}
+#copyBtn:hover{color:var(--cream)}
+.ap-form{max-width:30rem}
+.ap-row{margin-bottom:1.9rem}
+.ap-lab{display:block;font-size:9px;font-weight:400;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+.ap-row input,.ap-row select{
+  width:100%;background:transparent;border:0;border-bottom:1px solid rgba(245,237,232,.28);
+  color:var(--cream);font-family:'Jost';font-weight:300;font-size:15px;letter-spacing:.05em;
+  padding:.75rem 0;border-radius:0;transition:border-color .4s;
+}
+.ap-row select{
+  appearance:none;-webkit-appearance:none;
+  background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23F5EDE8' stroke-opacity='0.5' stroke-width='1'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right .2rem center;padding-right:1.6rem;
+}
+.ap-row select option{background:#170606;color:#F5EDE8}
+.ap-row input::placeholder{color:rgba(245,237,232,.32)}
+.ap-row input:focus,.ap-row select:focus{outline:0;border-color:var(--gold)}
+.ap-row .bad{border-bottom-color:var(--err)}
+.fmsg{min-height:1.6em;margin-top:1.3rem;font-family:'Cormorant',serif;font-style:italic;font-size:15px}
+.fmsg.ok{color:var(--gold)}
+.fmsg.err{color:var(--err)}
+.or-note{margin-top:1rem;font-family:'Cormorant',serif;font-style:italic;font-size:13px;color:rgba(245,237,232,.5)}
+@media(max-width:900px){
+  #order{padding-top:15vh}
+  .ord-grid{grid-template-columns:1fr;gap:3.5rem}
+  .row{grid-template-columns:3.6rem 1fr}
+}
+
+/* ═══════════════════════════════════════════════════
+   008 — FOOTER
+═══════════════════════════════════════════════════ */
+.footer{background:var(--black);padding:14vh var(--pad) 4.5vh;border-top:1px solid rgba(245,237,232,.08)}
+.foot-top{display:grid;grid-template-columns:1fr 440px;gap:4rem;align-items:center;max-width:1500px;margin:0 auto;padding-bottom:5rem;border-bottom:1px solid rgba(245,237,232,.1)}
+.foot-logo{font-family:'Cormorant',serif;font-weight:300;text-transform:uppercase;font-size:clamp(2.2rem,5vw,3.8rem);letter-spacing:.28em;margin-right:-.28em;line-height:1}
+.foot-tag{margin-top:1.5rem;font-size:10px;letter-spacing:.44em;margin-right:-.44em;text-transform:uppercase;color:rgba(245,237,232,.5)}
+.foot-clock{margin-top:1.1rem;font-size:10px;letter-spacing:.38em;text-transform:uppercase;color:var(--gold)}
+.nl .nl-label{font-size:10px;font-weight:400;letter-spacing:.55em;margin-right:-.55em;text-transform:uppercase;color:var(--gold)}
+.nl .nl-note{margin:.6rem 0 1.7rem;font-size:12px;color:rgba(245,237,232,.42);font-style:italic;font-family:'Cormorant',serif}
+.nl-field{display:flex;gap:1.6rem;align-items:flex-end}
+.nl-field input{flex:1;background:transparent;border:0;border-bottom:1px solid rgba(245,237,232,.28);color:var(--cream);font-family:'Jost';font-weight:300;font-size:15px;letter-spacing:.06em;padding:.8rem 0;transition:border-color .4s}
+.nl-field input::placeholder{color:rgba(245,237,232,.32)}
+.nl-field input:focus{outline:0;border-color:var(--gold)}
+.nl-field button{font-size:10px;font-weight:400;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);white-space:nowrap;padding:.8rem 0 .8rem .4em;transition:color .4s}
+.nl-field button:hover{color:var(--cream)}
+.foot-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:3rem;max-width:1500px;margin:0 auto;padding:4.5rem 0;border-bottom:1px solid rgba(245,237,232,.1)}
+.foot-cols h4{font-size:10px;font-weight:400;letter-spacing:.45em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem}
+.foot-cols a,.foot-cols button{display:block;text-align:left;font-size:12px;letter-spacing:.1em;padding:.4rem 0;color:rgba(245,237,232,.75);transition:color .4s}
+.foot-cols a:hover,.foot-cols button:hover{color:var(--gold)}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap;padding-top:2.6rem}
+.foot-line{font-size:9px;letter-spacing:.34em;text-transform:uppercase;color:rgba(245,237,232,.35)}
+.foot-legal{display:flex;gap:2.2rem}
+.foot-legal button{font-size:10px;font-weight:400;letter-spacing:.38em;text-transform:uppercase;color:rgba(245,237,232,.6);transition:color .4s}
+.foot-legal button:hover{color:var(--gold)}
+@media(max-width:1000px){.foot-top{grid-template-columns:1fr;gap:3.5rem}.foot-cols{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.foot-cols{grid-template-columns:1fr}.foot-bottom{justify-content:center;text-align:center}.nl-field{flex-direction:column;gap:1.2rem}}
+
+/* Modale */
+.modal{position:fixed;inset:0;z-index:9000;display:grid;place-items:center;padding:5vw;visibility:hidden;opacity:0;transition:opacity .45s,visibility .45s}
+.modal.open{visibility:visible;opacity:1}
+.modal-back{position:absolute;inset:0;background:rgba(10,10,10,.72);backdrop-filter:blur(6px)}
+.modal-panel{position:relative;max-width:560px;padding:3.2rem 3rem 2.6rem;background:#170606;border:1px solid rgba(194,161,100,.28);transform:translateY(16px) scale(.985);transition:transform .5s var(--ease);max-height:86vh;overflow-y:auto}
+.modal.open .modal-panel{transform:none}
+.modal-eyebrow{font-size:9px;letter-spacing:.5em;text-transform:uppercase;color:var(--gold)}
+.modal-title{margin:.9rem 0 1.4rem;font-family:'Cormorant',serif;font-weight:300;font-size:2rem;letter-spacing:.08em;text-transform:uppercase}
+.modal-body{font-size:14px;color:rgba(245,237,232,.78)}
+.modal-close{margin-top:2.4rem;font-size:10px;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);transition:color .4s}
+.modal-close:hover{color:var(--cream)}
+.sz-table{width:100%;border-collapse:collapse;margin:1.2rem 0 .8rem;font-size:12px}
+.sz-table th,.sz-table td{padding:.55rem 0;border-bottom:1px solid rgba(245,237,232,.14);text-align:center;font-weight:300;letter-spacing:.06em}
+.sz-table th{color:var(--gold);font-size:9px;letter-spacing:.3em;text-transform:uppercase}
+.sz-table td:first-child,.sz-table th:first-child{text-align:left;color:rgba(245,237,232,.6)}
+.sz-note{font-family:'Cormorant',serif;font-style:italic;font-size:13.5px;color:rgba(245,237,232,.65)}
+
+/* ═══════════════════════════════════════════════════
+   Responsive & mouvement réduit
+═══════════════════════════════════════════════════ */
+@media(max-width:1140px){.rail{display:none}.head-nav{display:none}.menu-btn{display:block}}
+@media(max-width:560px){body{font-size:14px}.folio{font-size:9px;letter-spacing:.32em}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv,.rv-fade,.fade-el,.ch,.hr-fade{opacity:1!important;transform:none!important;filter:none!important}
+  .ln-w .ln>span{transform:none!important}
+  .plate .draw>*{stroke-dashoffset:0!important}
+  .plate .gf{opacity:1!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- Grain -->
+<div class="grain" aria-hidden="true"></div>
+
+<!-- Header -->
+<header class="site-head" id="siteHead">
+  <a class="brand" href="#top">Canticence — Est. MMXXVI</a>
+  <nav class="head-nav" aria-label="Main">
+    <a class="u-line" href="#manifesto">House</a>
+    <a class="u-line" href="#sang">Sang</a>
+    <a class="u-line" href="#ecru">Écru</a>
+    <a class="u-line" href="#nuit">Nuit</a>
+    <a class="u-line" href="#drop">Drop</a>
+    <a class="u-line" href="#order">Order</a>
+  </nav>
+  <button class="menu-btn" id="menuBtn" aria-label="Open menu">Menu</button>
+</header>
+
+<!-- Rail : sommaire chiffré -->
+<nav class="rail" id="rail" aria-label="Sections">
+  <a href="#manifesto"><span>002</span></a>
+  <a href="#sang"><span>003</span></a>
+  <a href="#ecru"><span>004</span></a>
+  <a href="#nuit"><span>005</span></a>
+  <a href="#drop"><span>006</span></a>
+  <a href="#order"><span>007</span></a>
+</nav>
+
+<!-- Menu plein écran -->
+<div class="menu" id="menu" aria-hidden="true">
+  <button class="menu-close" id="menuClose">Close</button>
+  <nav class="menu-nav" aria-label="Menu">
+    <a href="#manifesto" style="--i:0"><span>002</span>The House</a>
+    <a href="#sang" style="--i:1"><span>003</span>Sang</a>
+    <a href="#ecru" style="--i:2"><span>004</span>Écru</a>
+    <a href="#nuit" style="--i:3"><span>005</span>Nuit</a>
+    <a href="#drop" style="--i:4"><span>006</span>The Drop</a>
+    <a href="#order" style="--i:5"><span>007</span>Order by Mail</a>
+    <a href="#footer" style="--i:6"><span>008</span>Correspondence</a>
+  </nav>
+  <p class="menu-foot">Paris — Est. MMXXVI</p>
+</div>
+
+<main>
+
+  <!-- ══════ 001 — HERO ══════ -->
+  <section class="hero" id="top" data-theme="dark">
+    <div class="hero-media" aria-hidden="true">
+      <!-- Vidéo en boucle : placez croixcanti.mp4 à côté du fichier HTML -->
+      <video class="hero-video" autoplay muted loop playsinline preload="auto"
+             poster="https://picsum.photos/seed/canticence-noir/1920/1080.jpg">
+        <source src="croixcanti.mp4" type="video/mp4">
+      </video>
+      <div class="smoke" id="smoke"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="hero-veil"></div>
+    </div>
+    <!-- Écritures rouges sur la vidéo -->
+    <div class="hero-red" aria-hidden="true">
+      <p class="hr-word hr-fade" style="--d:1.1s">Paris</p>
+      <p class="hr-side hr-side--l hr-fade" style="--d:1.7s">Drop 001 — MMXXVI</p>
+      <p class="hr-side hr-side--r hr-fade" style="--d:1.9s">Canticence · The Closed House</p>
+    </div>
+    <div class="hero-core">
+      <h1 class="hero-title">
+        <span class="ht-light split">I AM</span>
+        <span class="ht-strong split">CANTICENCE.</span>
+      </h1>
+      <p class="hero-sub fade-el" style="--d:1.2s">Two tees · one pull · numbered, then gone</p>
+    </div>
+    <div class="hero-bottom fade-el" style="--d:1.5s">
+      <p class="hb-folio">001 — Manifesto</p>
+      <a href="#manifesto" class="discover">
+        <span>Discover</span>
+        <svg width="14" height="9" viewBox="0 0 14 9" fill="none" aria-hidden="true"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1"/></svg>
+      </a>
+      <p class="hb-meta">Drop 001 · MMXXVI</p>
+    </div>
+  </section>
+
+  <!-- ══════ 002 — PRÉSENTATION ══════ -->
+  <section id="manifesto" class="lt" data-theme="light">
+    <div class="folio">002 · The House</div>
+    <div class="mani-ink" aria-hidden="true"></div>
+    <div class="mani-grid">
+      <p class="gold-label mani-eyebrow rv" data-rv>The House — MMXXVI</p>
+      <h2 class="mani-title ln-w" data-rv>
+        <span class="ln" style="--d:.1s"><span>Canticence<span class="tt-dot">.</span></span></span>
+      </h2>
+      <p class="mani-etym rv" data-rv style="--d:.3s">cantare — to sing · silere — to be silent.</p>
+      <p class="mani-text rv" data-rv style="--d:.4s">
+        A closed house, cut between pattern and patience. CANTICENCE releases in drops,
+        not seasons — numbered series, drawn in silence, made to be worn until they wear
+        out beautifully. The first drop is two t-shirts and one pull. Nothing else.
+      </p>
+      <p class="mani-facts rv" data-rv style="--d:.5s">240 g/m² combed cotton · garment-dyed in vats of forty · hand-numbered labels</p>
+      <dl class="house-card rv" data-rv style="--d:.55s">
+        <div><dt>Founded</dt><dd>MMXXVI — Paris</dd></div>
+        <div><dt>First drop</dt><dd>Two tees · one pull</dd></div>
+        <div><dt>Series</dt><dd>380 numbered pieces</dd></div>
+        <div><dt>Restock</dt><dd>Never</dd></div>
+      </dl>
+    </div>
+    <div class="seal rv-fade" data-rv style="--d:.7s" aria-hidden="true">
+      <svg viewBox="0 0 220 220">
+        <defs><path id="sealArc" d="M110,110 m-84,0 a84,84 0 1,1 168,0 a84,84 0 1,1 -168,0"/></defs>
+        <circle cx="110" cy="110" r="102" fill="none" stroke="rgba(139,26,26,.26)" stroke-width="1"/>
+        <circle cx="110" cy="110" r="64" fill="none" stroke="rgba(139,26,26,.2)" stroke-width="1"/>
+        <text><textPath href="#sealArc">CANTICENCE · PARIS · MMXXVI · THE CLOSED HOUSE ·</textPath></text>
+        <path d="M110 96 l10 14 -10 14 -10 -14 z" fill="none" stroke="rgba(139,26,26,.55)" stroke-width="1"/>
+      </svg>
+    </div>
+    <p class="mani-folio-low">012 — Natural scenery photo album / New collection</p>
+  </section>
+
+  <!-- ══════ 003 — TEE N°1 · SANG ══════ -->
+  <section id="sang" class="piece" data-theme="dark">
+    <div class="folio">003 · Tee N°1</div>
+    <div>
+      <p class="gold-label rv" data-rv>Drop 001 · Piece N°1 — the tee</p>
+      <h2 class="pc-title ln-w" data-rv><span class="ln" style="--d:.12s"><span>Sang.</span></span></h2>
+      <p class="pc-sub rv" data-rv style="--d:.2s">the house red, dyed in vats of forty</p>
+      <p class="pc-desc rv" data-rv style="--d:.28s">
+        Two hundred and forty grams of combed cotton, garment-dyed until the red sits
+        rather than shouts. Boxy, dropped shoulder, straight hem — the pattern the whole
+        drop is built on. Numbered of 150, never restocked.
+      </p>
+      <dl class="carnet rv" data-rv style="--d:.36s">
+        <div><dt>Fabric</dt><dd>240 g/m² combed cotton</dd></div>
+        <div><dt>Colour</dt><dd>Sang — garment-dyed</dd></div>
+        <div><dt>Fit</dt><dd>Boxy — dropped shoulder</dd></div>
+        <div><dt>Edition</dt><dd>Numbered of 150</dd></div>
+      </dl>
+      <a href="#order" class="link-line rv" data-rv data-piece="Tee N°1 — Sang" style="--d:.44s">
+        <span>Order by mail</span>
+        <span class="ll-line" aria-hidden="true"></span>
+        <svg width="26" height="8" viewBox="0 0 26 8" fill="none" aria-hidden="true"><path d="M0 4h24M20 1l4 3-4 3" stroke="currentColor" stroke-width="1"/></svg>
+      </a>
+    </div>
+    <div class="plate-stage rv" data-rv style="--d:.15s">
+      <svg class="plate" data-rv viewBox="0 0 640 700" role="img" aria-label="Technical flat sketch — Tee N°1 Sang">
+        <g class="draw">
+          <path d="M268 118 C280 80 360 80 372 118" pathLength="1" style="--d:0s"/>
+          <path d="M282 120 C292 92 348 92 358 120" pathLength="1" style="--d:.15s"/>
+          <path d="M282 120 Q320 158 358 120" pathLength="1" style="--d:.3s"/>
+          <path d="M268 118 L196 208" pathLength="1" style="--d:.25s"/>
+          <path d="M372 118 L444 208" pathLength="1" style="--d:.25s"/>
+          <path d="M196 208 L152 340" pathLength="1" style="--d:.4s"/>
+          <path d="M152 340 L216 372" pathLength="1" style="--d:.55s"/>
+          <path d="M216 372 L232 284" pathLength="1" style="--d:.7s"/>
+          <path d="M444 208 L488 340" pathLength="1" style="--d:.4s"/>
+          <path d="M488 340 L424 372" pathLength="1" style="--d:.55s"/>
+          <path d="M424 372 L408 284" pathLength="1" style="--d:.7s"/>
+          <path d="M232 284 L220 560" pathLength="1" style="--d:.85s"/>
+          <path d="M408 284 L420 560" pathLength="1" style="--d:.85s"/>
+          <path d="M220 560 L420 560" pathLength="1" style="--d:1s"/>
+          <path d="M218 572 L422 572" pathLength="1" style="--d:1.1s"/>
+          <path d="M306 158 L320 174 L334 158" pathLength="1" style="--d:1.2s"/>
+        </g>
+        <g class="gf" style="--d:1.2s">
+          <path class="thin" d="M273 108 L284 102 M283 95 L291 91 M317 84 L323 84 M357 95 L349 91 M367 108 L356 102"/>
+          <path class="stitch" d="M160 348 L222 379"/>
+          <path class="stitch" d="M480 348 L418 379"/>
+          <path class="stitch" d="M238 290 L227 556 M402 290 L413 556"/>
+        </g>
+        <g class="gf" style="--d:1.5s">
+          <path class="dim" d="M220 620 L420 620 M220 613 L220 627 M420 613 L420 627"/>
+          <text class="pl-dim" x="320" y="612" text-anchor="middle">chest — 55 cm</text>
+          <path class="dim" d="M92 118 L92 560 M85 118 L99 118 M85 560 L99 560"/>
+          <text class="pl-dim" transform="rotate(-90 74 339)" x="74" y="339" text-anchor="middle">length — 70 cm</text>
+        </g>
+        <g class="gf" style="--d:1.8s">
+          <path class="thin" d="M320 96 L320 44"/>
+          <text class="pl-txt" x="320" y="32" text-anchor="middle">1x1 rib collar</text>
+          <path class="thin" d="M196 208 L130 168"/>
+          <text class="pl-txt" x="8" y="162">dropped shoulder</text>
+          <path class="thin" d="M414 310 L494 262"/>
+          <text class="pl-txt" x="500" y="258">240 g/m²</text>
+          <text class="pl-txt" x="500" y="273">combed cotton</text>
+          <path class="thin" d="M416 420 L494 380"/>
+          <text class="pl-txt" x="500" y="376">side seams</text>
+          <text class="pl-txt" x="500" y="391">chain-stitched</text>
+          <path class="thin" d="M330 566 L470 620"/>
+          <text class="pl-txt" x="476" y="616">woven label</text>
+          <text class="pl-txt" x="476" y="631">numbered by hand</text>
+          <path class="thin" d="M594 80 L606 80 M600 74 L600 86 M34 644 L46 644 M40 638 L40 650" opacity=".5"/>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ══════ 004 — TEE N°2 · ÉCRU ══════ -->
+  <section id="ecru" class="piece lt" data-theme="light">
+    <div class="folio">004 · Tee N°2</div>
+    <div>
+      <p class="gold-label rv" data-rv>Drop 001 · Piece N°2 — the tee</p>
+      <h2 class="pc-title ln-w" data-rv><span class="ln" style="--d:.12s"><span>Écru.</span></span></h2>
+      <p class="pc-sub rv" data-rv style="--d:.2s">the colour the cotton already was</p>
+      <p class="pc-desc rv" data-rv style="--d:.28s">
+        The same pattern as N°1, left raw — no dye, no bleach. Unbleached combed cotton
+        that softens with every wash and never runs. The sketch opposite is the same
+        sketch, drawn again, on purpose. Numbered of 150.
+      </p>
+      <dl class="carnet rv" data-rv style="--d:.36s">
+        <div><dt>Fabric</dt><dd>240 g/m² combed cotton</dd></div>
+        <div><dt>Colour</dt><dd>Écru — natural, undyed</dd></div>
+        <div><dt>Fit</dt><dd>Same pattern as N°1</dd></div>
+        <div><dt>Edition</dt><dd>Numbered of 150</dd></div>
+      </dl>
+      <a href="#order" class="link-line rv" data-rv data-piece="Tee N°2 — Écru" style="--d:.44s">
+        <span>Order by mail</span>
+        <span class="ll-line" aria-hidden="true"></span>
+        <svg width="26" height="8" viewBox="0 0 26 8" fill="none" aria-hidden="true"><path d="M0 4h24M20 1l4 3-4 3" stroke="currentColor" stroke-width="1"/></svg>
+      </a>
+    </div>
+    <div class="plate-stage rv" data-rv style="--d:.15s">
+      <!-- Même patron que le Sang — mêmes tracés, encre sur papier -->
+      <svg class="plate plate--ink" data-rv viewBox="0 0 640 700" role="img" aria-label="Technical flat sketch — Tee N°2 Écru, same pattern as N°1">
+        <g class="draw">
+          <path d="M268 118 C280 80 360 80 372 118" pathLength="1" style="--d:0s"/>
+          <path d="M282 120 C292 92 348 92 358 120" pathLength="1" style="--d:.15s"/>
+          <path d="M282 120 Q320 158 358 120" pathLength="1" style="--d:.3s"/>
+          <path d="M268 118 L196 208" pathLength="1" style="--d:.25s"/>
+          <path d="M372 118 L444 208" pathLength="1" style="--d:.25s"/>
+          <path d="M196 208 L152 340" pathLength="1" style="--d:.4s"/>
+          <path d="M152 340 L216 372" pathLength="1" style="--d:.55s"/>
+          <path d="M216 372 L232 284" pathLength="1" style="--d:.7s"/>
+          <path d="M444 208 L488 340" pathLength="1" style="--d:.4s"/>
+          <path d="M488 340 L424 372" pathLength="1" style="--d:.55s"/>
+          <path d="M424 372 L408 284" pathLength="1" style="--d:.7s"/>
+          <path d="M232 284 L220 560" pathLength="1" style="--d:.85s"/>
+          <path d="M408 284 L420 560" pathLength="1" style="--d:.85s"/>
+          <path d="M220 560 L420 560" pathLength="1" style="--d:1s"/>
+          <path d="M218 572 L422 572" pathLength="1" style="--d:1.1s"/>
+          <path d="M306 158 L320 174 L334 158" pathLength="1" style="--d:1.2s"/>
+        </g>
+        <g class="gf" style="--d:1.2s">
+          <path class="thin" d="M273 108 L284 102 M283 95 L291 91 M317 84 L323 84 M357 95 L349 91 M367 108 L356 102"/>
+          <path class="stitch" d="M160 348 L222 379"/>
+          <path class="stitch" d="M480 348 L418 379"/>
+          <path class="stitch" d="M238 290 L227 556 M402 290 L413 556"/>
+        </g>
+        <g class="gf" style="--d:1.5s">
+          <path class="dim" d="M220 620 L420 620 M220 613 L220 627 M420 613 L420 627"/>
+          <text class="pl-dim" x="320" y="612" text-anchor="middle">chest — 55 cm</text>
+          <path class="dim" d="M92 118 L92 560 M85 118 L99 118 M85 560 L99 560"/>
+          <text class="pl-dim" transform="rotate(-90 74 339)" x="74" y="339" text-anchor="middle">length — 70 cm</text>
+        </g>
+        <g class="gf" style="--d:1.8s">
+          <path class="thin" d="M320 96 L320 44"/>
+          <text class="pl-txt" x="320" y="32" text-anchor="middle">1x1 rib collar</text>
+          <path class="thin" d="M196 208 L130 168"/>
+          <text class="pl-txt" x="8" y="162">dropped shoulder</text>
+          <path class="thin" d="M414 310 L494 262"/>
+          <text class="pl-txt" x="500" y="258">undyed</text>
+          <text class="pl-txt" x="500" y="273">natural écru</text>
+          <path class="thin" d="M416 420 L494 380"/>
+          <text class="pl-txt" x="500" y="376">side seams</text>
+          <text class="pl-txt" x="500" y="391">chain-stitched</text>
+          <path class="thin" d="M330 566 L470 620"/>
+          <text class="pl-txt" x="476" y="616">same pattern</text>
+          <text class="pl-txt" x="476" y="631">as N°1, drawn again</text>
+          <path class="thin" d="M594 80 L606 80 M600 74 L600 86 M34 644 L46 644 M40 638 L40 650" opacity=".5"/>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ══════ 005 — PULL N°1 · NUIT ══════ -->
+  <section id="nuit" class="piece" data-theme="dark">
+    <div class="folio">005 · Pull N°1</div>
+    <div>
+      <p class="gold-label rv" data-rv>Drop 001 · Piece N°3 — the pull</p>
+      <h2 class="pc-title ln-w" data-rv><span class="ln" style="--d:.12s"><span>Nuit.</span></span></h2>
+      <p class="pc-sub rv" data-rv style="--d:.2s">the pull — the heaviest thing we make</p>
+      <p class="pc-desc rv" data-rv style="--d:.28s">
+        Four hundred and sixty grams of brushed loopback, overdyed to the colour of
+        three in the morning. Deep armholes, dropped shoulders, ribbed from collar
+        to cuff, numbered by hand inside the back hem.
+      </p>
+      <div class="pc-quote rv" data-rv style="--d:.34s">
+        <p>&ldquo;Some garments are made to be worn. This one is made to be worn out.&rdquo;</p>
+        <cite>— House Notes, Vol. II</cite>
+      </div>
+      <dl class="carnet rv" data-rv style="--d:.42s">
+        <div><dt>Fabric</dt><dd>460 g/m² brushed loopback</dd></div>
+        <div><dt>Colour</dt><dd>Nuit — overdyed</dd></div>
+        <div><dt>Fit</dt><dd>Boxy — deep armhole</dd></div>
+        <div><dt>Edition</dt><dd>Numbered of 80</dd></div>
+      </dl>
+      <a href="#order" class="link-line rv" data-rv data-piece="Pull N°1 — Nuit" style="--d:.5s">
+        <span>Order by mail</span>
+        <span class="ll-line" aria-hidden="true"></span>
+        <svg width="26" height="8" viewBox="0 0 26 8" fill="none" aria-hidden="true"><path d="M0 4h24M20 1l4 3-4 3" stroke="currentColor" stroke-width="1"/></svg>
+      </a>
+    </div>
+    <div class="plate-stage rv" data-rv style="--d:.15s">
+      <div class="stage-glow" aria-hidden="true"></div>
+      <svg class="plate" data-rv viewBox="0 0 640 700" role="img" aria-label="Technical flat sketch — Pull N°1 Nuit, crewneck with dropped shoulders">
+        <g class="draw">
+          <path d="M265 112 C278 72 362 72 375 112" pathLength="1" style="--d:0s"/>
+          <path d="M279 114 C290 86 350 86 361 114" pathLength="1" style="--d:.15s"/>
+          <path d="M279 114 Q320 155 361 114" pathLength="1" style="--d:.3s"/>
+          <path d="M265 112 L186 206" pathLength="1" style="--d:.25s"/>
+          <path d="M375 112 L454 206" pathLength="1" style="--d:.25s"/>
+          <path d="M186 206 L136 442" pathLength="1" style="--d:.4s"/>
+          <path d="M136 442 L212 506" pathLength="1" style="--d:.55s"/>
+          <path d="M212 506 L230 332" pathLength="1" style="--d:.7s"/>
+          <path d="M454 206 L504 442" pathLength="1" style="--d:.4s"/>
+          <path d="M504 442 L428 506" pathLength="1" style="--d:.55s"/>
+          <path d="M428 506 L410 332" pathLength="1" style="--d:.7s"/>
+          <path d="M230 332 L214 588" pathLength="1" style="--d:.85s"/>
+          <path d="M410 332 L426 588" pathLength="1" style="--d:.85s"/>
+          <path d="M214 588 L426 588" pathLength="1" style="--d:1s"/>
+          <path d="M214 588 L208 630" pathLength="1" style="--d:1.1s"/>
+          <path d="M426 588 L432 630" pathLength="1" style="--d:1.1s"/>
+          <path d="M208 630 L432 630" pathLength="1" style="--d:1.15s"/>
+          <path d="M306 155 L320 172 L334 155" pathLength="1" style="--d:1.25s"/>
+        </g>
+        <g class="gf" style="--d:1.2s">
+          <path class="thin" d="M270 103 L281 96 M279 89 L288 85 M316 77 L324 77 M361 89 L352 85 M370 103 L359 96"/>
+          <path class="thin" d="M147 432 L221 494 M152 443 L162 434 M168 456 L178 447 M184 469 L194 460 M200 482 L210 473"/>
+          <path class="thin" d="M493 432 L419 494 M488 443 L478 434 M472 456 L462 447 M456 469 L446 460 M440 482 L430 473"/>
+          <path class="thin" d="M226 590 L225 628 M247 590 L246 628 M268 590 L267 628 M289 590 L288 628 M310 590 L309 628 M331 590 L330 628 M352 590 L351 628 M373 590 L372 628 M394 590 L393 628 M415 590 L414 628"/>
+          <path class="stitch" d="M236 342 L221 580 M404 342 L419 580"/>
+        </g>
+        <g class="gf" style="--d:1.5s">
+          <path class="dim" d="M208 660 L432 660 M208 653 L208 667 M432 653 L432 667"/>
+          <text class="pl-dim" x="320" y="652" text-anchor="middle">chest — 64 cm</text>
+          <path class="dim" d="M92 112 L92 630 M85 112 L99 112 M85 630 L99 630"/>
+          <text class="pl-dim" transform="rotate(-90 74 371)" x="74" y="371" text-anchor="middle">length — 72 cm</text>
+        </g>
+        <g class="gf" style="--d:1.8s">
+          <path class="thin" d="M320 90 L320 44"/>
+          <text class="pl-txt" x="320" y="32" text-anchor="middle">2x2 rib collar</text>
+          <path class="thin" d="M186 206 L130 168"/>
+          <text class="pl-txt" x="8" y="162">dropped shoulder</text>
+          <path class="thin" d="M404 340 L494 292"/>
+          <text class="pl-txt" x="500" y="288">460 g/m²</text>
+          <text class="pl-txt" x="500" y="303">brushed loopback</text>
+          <path class="thin" d="M334 160 L450 118"/>
+          <text class="pl-txt" x="456" y="114">V-stitch</text>
+          <path class="thin" d="M340 602 L466 654"/>
+          <text class="pl-txt" x="472" y="650">hand-numbered</text>
+          <text class="pl-txt" x="472" y="665">label — back hem</text>
+          <path class="thin" d="M150 468 L102 528"/>
+          <text class="pl-txt" x="8" y="545">2x2 rib cuff</text>
+          <path class="thin" d="M594 80 L606 80 M600 74 L600 86 M34 644 L46 644 M40 638 L40 650" opacity=".5"/>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ══════ 006 — THE DROP (la date) ══════ -->
+  <section id="drop" data-theme="dark">
+    <div class="folio">006 · The Drop</div>
+    <div class="drop-core">
+      <p class="gold-label rv" data-rv>The Drop — N°1</p>
+      <h2 class="drop-title ln-w" data-rv>
+        <span class="ln" style="--d:.1s"><span>One evening. One hour.</span></span>
+      </h2>
+      <p class="drop-date rv" data-rv style="--d:.22s" id="dropDate">—</p>
+      <div class="cd rv" data-rv style="--d:.3s" id="cd">
+        <div><b id="cdD">--</b><span>Days</span></div>
+        <div><b id="cdH">--</b><span>Hours</span></div>
+        <div><b id="cdM">--</b><span>Min</span></div>
+        <div><b id="cdS">--</b><span>Sec</span></div>
+      </div>
+      <p class="cd-live" id="cdLive" hidden>The first drop has spoken — the list is closed.</p>
+      <p class="drop-rules rv" data-rv style="--d:.4s">
+        380 numbered pieces · three patterns · no restock · a gone number never returns
+      </p>
+      <a href="#order" class="link-line rv" data-rv style="--d:.5s">
+        <span>Order by mail</span>
+        <span class="ll-line" aria-hidden="true"></span>
+        <svg width="26" height="8" viewBox="0 0 26 8" fill="none" aria-hidden="true"><path d="M0 4h24M20 1l4 3-4 3" stroke="currentColor" stroke-width="1"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ══════ 007 — THE ORDER (commander par mail) ══════ -->
+  <section id="order" data-theme="dark">
+    <div class="folio">007 · The Order</div>
+    <div class="ord-grid">
+      <div>
+        <p class="gold-label rv" data-rv>The Order — by mail</p>
+        <h2 class="ord-title ln-w" data-rv>
+          <span class="ln" style="--d:.12s"><span>The order is a letter.</span></span>
+        </h2>
+        <p class="ord-sub rv" data-rv style="--d:.22s">
+          No cart, no checkout, no account. You write to the house; the house answers.
+        </p>
+        <ol class="rows">
+          <li class="row rv" data-rv style="--d:.3s">
+            <span class="row-n">01</span>
+            <div><h3>Choose</h3><p>Piece and size, opposite. The letter writes itself.</p></div>
+          </li>
+          <li class="row rv" data-rv style="--d:.38s">
+            <span class="row-n">02</span>
+            <div><h3>Send</h3><p>One click opens your mail app — the letter is ready to go.</p></div>
+          </li>
+          <li class="row rv" data-rv style="--d:.46s">
+            <span class="row-n">03</span>
+            <div><h3>The Reply</h3><p>Within a day: your number, held for forty-eight hours, payment by transfer.</p></div>
+          </li>
+        </ol>
+        <div class="mail-line rv" data-rv style="--d:.54s">
+          <p class="mail-addr">correspondence@canticence.paris</p>
+          <button class="u-line" id="copyBtn">Copy the address</button>
+        </div>
+        <p class="fmsg" id="copyMsg" aria-live="polite"></p>
+      </div>
+      <form class="ap-form rv" data-rv style="--d:.28s" id="orForm" novalidate>
+        <div class="ap-row">
+          <label class="ap-lab" for="orPiece">Piece</label>
+          <select id="orPiece">
+            <option value="" selected disabled>Choose a piece</option>
+            <option value="Tee N°1 — Sang">Tee N°1 — Sang</option>
+            <option value="Tee N°2 — Écru">Tee N°2 — Écru</option>
+            <option value="Pull N°1 — Nuit">Pull N°1 — Nuit</option>
+          </select>
+        </div>
+        <div class="ap-row">
+          <label class="ap-lab" for="orSize">Size</label>
+          <select id="orSize">
+            <option value="" selected disabled>Choose a size</option>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+          </select>
+        </div>
+        <div class="ap-row">
+          <label class="ap-lab" for="orName">Name</label>
+          <input id="orName" type="text" autocomplete="name" placeholder="Your name">
+        </div>
+        <button type="submit" class="link-line">
+          <span>Open the letter in your mail</span>
+          <span class="ll-line" aria-hidden="true"></span>
+          <svg width="26" height="8" viewBox="0 0 26 8" fill="none" aria-hidden="true"><path d="M0 4h24M20 1l4 3-4 3" stroke="currentColor" stroke-width="1"/></svg>
+        </button>
+        <p class="fmsg" id="orMsg" aria-live="polite"></p>
+        <p class="or-note">The drop must be open for an order to be answered — the date is above.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ══════ 008 — FOOTER ══════ -->
+  <footer class="footer" id="footer" data-theme="dark">
+    <div class="folio">008 · Correspondence</div>
+    <div class="foot-top">
+      <div>
+        <h2 class="foot-logo ln-w" data-rv>
+          <span class="ln"><span>Canticence</span></span>
+        </h2>
+        <p class="foot-tag rv" data-rv style="--d:.15s">Garments in numbered drops — Paris, since MMXXVI</p>
+        <p class="foot-clock rv" data-rv style="--d:.25s" id="parisClock">Paris — --:--</p>
+      </div>
+      <form class="nl rv" data-rv style="--d:.2s" id="nlForm" novalidate>
+        <p class="nl-label">The Private List</p>
+        <p class="nl-note">One letter per drop. Nothing else.</p>
+        <div class="nl-field">
+          <input type="email" id="nlInput" placeholder="Your address" aria-label="Email address" autocomplete="email">
+          <button type="submit">Subscribe</button>
+        </div>
+        <p class="fmsg" id="nlMsg" aria-live="polite"></p>
+      </form>
+    </div>
+    <div class="foot-cols">
+      <div>
+        <h4>Client Services</h4>
+        <button data-modal="size">Size Guide</button>
+        <button data-modal="care">Care Guide</button>
+        <button data-modal="contact">Contact</button>
+      </div>
+      <div>
+        <h4>The Maison</h4>
+        <a href="#manifesto">The House</a>
+        <a href="#sang">Tee N°1 — Sang</a>
+        <a href="#ecru">Tee N°2 — Écru</a>
+        <a href="#nuit">Pull N°1 — Nuit</a>
+        <a href="#drop">The Drop</a>
+        <a href="#order">Order by Mail</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.pinterest.com/" target="_blank" rel="noopener">Pinterest</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p class="foot-line">© MMXXVI Canticence — an independent house. No investors, no seasons, no restock.</p>
+      <div class="foot-legal">
+        <button data-modal="legal">Legal Notice</button>
+        <button data-modal="privacy">Privacy</button>
+      </div>
+    </div>
+  </footer>
+
+</main>
+
+<!-- Modale -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="modal-back" data-close></div>
+  <div class="modal-panel">
+    <p class="modal-eyebrow">Canticence — Paris</p>
+    <h3 class="modal-title" id="modalTitle"></h3>
+    <div class="modal-body" id="modalBody"></div>
+    <button class="modal-close" data-close>Close</button>
+  </div>
+</div>
+
+<script>
+(() => {
+  const $  = s => document.querySelector(s);
+  const $$ = s => [...document.querySelectorAll(s)];
+  const body = document.body;
+  const lerp = (a,b,t) => a + (b-a)*t;
+
+  /* ── 1. Entrée directe sur le héro ── */
+  setTimeout(() => body.classList.add('loaded'), 150);
+
+  /* ── 2. Titre héro : découpe lettre par lettre ── */
+  $$('.split').forEach(el => {
+    const text = el.textContent; el.textContent = '';
+    [...text].forEach((c,i) => {
+      if (c === ' ') { el.appendChild(document.createTextNode(' ')); return; }
+      const s = document.createElement('span');
+      s.className = 'ch'; s.style.setProperty('--i', i); s.textContent = c;
+      el.appendChild(s);
+    });
+  });
+
+  /* ── 3. Observateur de révélations (dessine aussi les croquis) ── */
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold:.12, rootMargin:'0px 0px -8% 0px' });
+  $$('[data-rv]').forEach(el => io.observe(el));
+
+  /* ── 4. Header : thème, retrait au scroll, rail actif ── */
+  const sections = $$('[data-theme]');
+  const head = $('#siteHead'), rail = $('#rail'), railLinks = $$('.rail a');
+  let ticking = false, lastY = 0, menuOpen = false;
+  const sectionAt = y => {
+    for (const s of sections) { const r = s.getBoundingClientRect(); if (r.top <= y && r.bottom > y) return s; }
+    return null;
+  };
+  function onScroll(){
+    if (ticking) return; ticking = true;
+    requestAnimationFrame(() => {
+      const y = scrollY;
+      const sTop = sectionAt(30), sMid = sectionAt(innerHeight*.5);
+      head.classList.toggle('on-light', sTop?.dataset.theme === 'light');
+      rail.classList.toggle('on-light', sMid?.dataset.theme === 'light');
+      railLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#'+(sMid?.id || '')));
+      if (y > 160 && y > lastY + 6 && !menuOpen) head.classList.add('hidey');
+      else if (y < lastY - 6 || y < 160) head.classList.remove('hidey');
+      lastY = y;
+      ticking = false;
+    });
+  }
+  addEventListener('scroll', onScroll, { passive:true }); onScroll();
+
+  /* ── 5. Parallaxe : fumée du héro + croquis (léger suivi curseur) ── */
+  const smoke = $('#smoke'), hero = $('#top');
+  let tx = 0, ty = 0, sx = 0, sy = 0;
+  hero.addEventListener('pointermove', e => {
+    tx = (e.clientX / innerWidth  - .5) * 2;
+    ty = (e.clientY / innerHeight - .5) * 2;
+  });
+  const plates = $$('.plate-stage').map(el => ({ el, tx:0, ty:0, cx:0, cy:0, sec: el.closest('.piece') }));
+  plates.forEach(p => {
+    if (!p.sec) return;
+    p.sec.addEventListener('pointermove', e => {
+      const r = p.sec.getBoundingClientRect();
+      p.tx = ((e.clientX - r.left) / r.width  - .5) * 16;
+      p.ty = ((e.clientY - r.top)  / r.height - .5) * 10;
+    });
+  });
+  (function loop(){
+    sx = lerp(sx, tx, .03); sy = lerp(sy, ty, .03);
+    if (smoke) smoke.style.transform = `translate3d(${sx*36}px,${sy*24}px,0)`;
+    plates.forEach(p => {
+      p.cx = lerp(p.cx, p.tx, .05); p.cy = lerp(p.cy, p.ty, .05);
+      p.el.style.transform = `translate(${p.cx.toFixed(1)}px,${p.cy.toFixed(1)}px)`;
+    });
+    requestAnimationFrame(loop);
+  })();
+
+  /* ── 6. Menu plein écran ── */
+  const menu = $('#menu');
+  const setMenu = open => {
+    menuOpen = open;
+    menu.classList.toggle('open', open);
+    menu.setAttribute('aria-hidden', String(!open));
+    body.classList.toggle('locked', open);
+    if (open) head.classList.remove('hidey');
+  };
+  $('#menuBtn').addEventListener('click', () => setMenu(true));
+  $('#menuClose').addEventListener('click', () => setMenu(false));
+  $$('.menu-nav a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+
+  /* ── 7. Le drop : date affichée + compte à rebours ── */
+  /* Fixez ici la vraie date du drop, ex. : new Date('2026-03-21T20:00:00+01:00') */
+  const DROP_AT = new Date(Date.now() + 21 * 864e5);
+  const MAIL = 'correspondence@canticence.paris';
+  {
+    const dayFmt  = new Intl.DateTimeFormat('en-GB', { timeZone:'Europe/Paris', weekday:'long', day:'numeric', month:'long' });
+    const timeFmt = new Intl.DateTimeFormat('en-GB', { timeZone:'Europe/Paris', hour:'2-digit', minute:'2-digit', hour12:false });
+    $('#dropDate').textContent = dayFmt.format(DROP_AT) + ' · ' + timeFmt.format(DROP_AT) + ' — Paris';
+  }
+  const cd = $('#cd');
+  const cdEls = { d:$('#cdD'), h:$('#cdH'), m:$('#cdM'), s:$('#cdS') };
+  const tickCd = () => {
+    let diff = DROP_AT - Date.now();
+    if (diff <= 0) { cd.style.display = 'none'; $('#cdLive').hidden = false; return; }
+    const d = Math.floor(diff / 864e5); diff -= d * 864e5;
+    const h = Math.floor(diff / 36e5);  diff -= h * 36e5;
+    const m = Math.floor(diff / 6e4);
+    const s = Math.floor((diff % 6e4) / 1e3);
+    cdEls.d.textContent = String(d).padStart(2,'0');
+    cdEls.h.textContent = String(h).padStart(2,'0');
+    cdEls.m.textContent = String(m).padStart(2,'0');
+    cdEls.s.textContent = String(s).padStart(2,'0');
+  };
+  tickCd(); setInterval(tickCd, 1000);
+
+  /* ── 8. Commande par mail : la lettre se génère et s'ouvre ── */
+  const orForm = $('#orForm'), orPiece = $('#orPiece'), orSize = $('#orSize'), orName = $('#orName'), orMsg = $('#orMsg');
+  const clearBad = () => [orPiece, orSize, orName].forEach(el => el.classList.remove('bad'));
+  [orName].forEach(el => el.addEventListener('input', clearBad));
+  [orPiece, orSize].forEach(el => el.addEventListener('change', clearBad));
+  /* CTA des pièces : pré-sélectionne la pièce dans le formulaire */
+  $$('a[data-piece]').forEach(a => a.addEventListener('click', () => {
+    orPiece.value = a.dataset.piece;
+    orPiece.classList.remove('bad');
+  }));
+  orForm.addEventListener('submit', e => {
+    e.preventDefault(); clearBad();
+    if (!orPiece.value) {
+      orMsg.textContent = 'The house asks for a piece.';
+      orMsg.className = 'fmsg err'; orPiece.classList.add('bad'); orPiece.focus(); return;
+    }
+    if (!orSize.value) {
+      orMsg.textContent = 'The house asks for a size.';
+      orMsg.className = 'fmsg err'; orSize.classList.add('bad'); orSize.focus(); return;
+    }
+    if (orName.value.trim().length < 2) {
+      orMsg.textContent = 'The house insists on a name.';
+      orMsg.className = 'fmsg err'; orName.classList.add('bad'); orName.focus(); return;
+    }
+    const subject = 'Order — Drop 001 · CANTICENCE';
+    const mailBody =
+      'CANTICENCE — Drop 001\n\n' +
+      'Piece: ' + orPiece.value + '\n' +
+      'Size: '   + orSize.value  + '\n' +
+      'Name: '   + orName.value.trim() + '\n\n' +
+      '(Your number will be confirmed by reply. Payment by transfer. Shipping worldwide from Paris.)';
+    orMsg.textContent = 'The letter is opening in your mail app — the house answers within a day.';
+    orMsg.className = 'fmsg ok';
+    location.href = 'mailto:' + MAIL +
+      '?subject=' + encodeURIComponent(subject) +
+      '&body='    + encodeURIComponent(mailBody);
+  });
+
+  /* ── 9. Copier l'adresse ── */
+  const copyBtn = $('#copyBtn'), copyMsg = $('#copyMsg');
+  copyBtn.addEventListener('click', () => {
+    if (navigator.clipboard?.writeText) {
+      navigator.clipboard.writeText(MAIL).then(() => {
+        copyMsg.textContent = 'Copied — write when the drop is open.';
+        copyMsg.className = 'fmsg ok';
+      }).catch(() => {
+        copyMsg.textContent = 'The clipboard refused — the address is above, write it slowly.';
+        copyMsg.className = 'fmsg err';
+      });
+    } else {
+      copyMsg.textContent = 'The clipboard refused — the address is above, write it slowly.';
+      copyMsg.className = 'fmsg err';
+    }
+  });
+
+  /* ── 10. Newsletter (footer) ── */
+  const nlForm = $('#nlForm'), nlInput = $('#nlInput'), nlMsg = $('#nlMsg');
+  nlForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const v = nlInput.value.trim();
+    if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) {
+      nlMsg.textContent = 'Noted. One letter per drop — and nothing more.';
+      nlMsg.className = 'fmsg ok';
+      nlInput.value = '';
+    } else {
+      nlMsg.textContent = 'Enter a valid address — the house insists.';
+      nlMsg.className = 'fmsg err';
+    }
+  });
+
+  /* ── 11. Modales ── */
+  const MODALS = {
+    size: { t:'Size Guide', b:'<table class="sz-table"><tr><th></th><th>S</th><th>M</th><th>L</th><th>XL</th></tr>' +
+      '<tr><td>Chest — cm</td><td>52</td><td>55</td><td>58</td><td>61</td></tr>' +
+      '<tr><td>Length — cm</td><td>68</td><td>70</td><td>72</td><td>74</td></tr>' +
+      '<tr><td>Shoulder — cm</td><td>48</td><td>51</td><td>54</td><td>57</td></tr>' +
+      '<tr><td>Sleeve — cm</td><td>21</td><td>22</td><td>23</td><td>24</td></tr></table>' +
+      '<p class="sz-note">All pieces are cut boxy. The pull runs one size generous — size down for a classic fit, stay for the silhouette the pattern was drawn for.</p>' },
+    care: { t:'Care Guide', b:'Wash at thirty, inside out, with colours that behave. The cotton is garment-dyed: it will bleed a little the first time, and soften for the rest of its life. Air-dry flat, away from radiators. Do not iron the label. Rest a tee forty-eight hours between wearings; the knit recovers, and so do you. For the pull: fold, never hang — a dropped shoulder remembers.' },
+    contact: { t:'Contact', b:'The house answers its own letters. Write to correspondence@canticence.paris — replies within one day for orders, within one season for everything else. There is no telephone. There has never been a telephone.' },
+    legal: { t:'Legal Notice', b:'CANTICENCE is an independent clothing house registered in Paris, France. All garments, texts and images presented on this page are the property of the house. Reproduction, in whole or in part, is not permitted without written correspondence.' },
+    privacy: { t:'Privacy', b:'We keep no records beyond the address you entrust to us. It serves a single purpose: the letter of the drop. It is never sold, shared, or lent — and it is erased upon request, without question.' },
+  };
+  const modal = $('#modal');
+  let modalFocus = null;
+  const setModal = open => {
+    modal.classList.toggle('open', open);
+    modal.setAttribute('aria-hidden', String(!open));
+    if (open) $('.modal-close').focus(); else modalFocus?.focus?.();
+  };
+  $$('[data-modal]').forEach(b => b.addEventListener('click', () => {
+    const d = MODALS[b.dataset.modal];
+    $('#modalTitle').textContent = d.t;
+    $('#modalBody').innerHTML  = d.b;
+    modalFocus = b;
+    setModal(true);
+  }));
+  $$('[data-close]').forEach(b => b.addEventListener('click', () => setModal(false)));
+  addEventListener('keydown', e => { if (e.key === 'Escape') { setModal(false); setMenu(false); } });
+
+  /* ── 12. Horloge de Paris ── */
+  const clock = $('#parisClock');
+  if (clock) {
+    const f = new Intl.DateTimeFormat('en-GB', { timeZone:'Europe/Paris', hour:'2-digit', minute:'2-digit' });
+    const tick = () => clock.textContent = 'Paris — ' + f.format(new Date());
+    tick(); setInterval(tick, 20000);
+  }
+})();
+</script>
+</body>
+</html>
